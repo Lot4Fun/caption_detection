@@ -1,0 +1,110 @@
+dataset:
+  random_seed: 1
+  input_path: ./org
+  test_split: 0.2
+prepare:
+  data_id: dummy
+  experiment_id: dummy
+train:
+  fit:
+    batch_size: 32
+    epochs: 10000
+    verbose: 1
+    validation_split: 0.2
+    shuffle: true
+    initial_epoch: 0
+    callbacks:
+      ReduceLROnPlateau:
+        enable: true
+        hparams:
+          monitor: val_loss
+          factor: 0.2
+          patience: 100
+          verbose: 1
+          mode: auto
+          epsilon: 0.0001
+          cooldown: 0
+          min_lr: 1.0e-06
+      ModelCheckpoint:
+        enable: true
+        hparams:
+          filepath: null
+          monitor: val_loss
+          verbose: 1
+          save_best_only: false
+          save_weights_only: false
+          mode: auto
+          period: 100
+      EarlyStopping:
+        enable: false
+        hparams:
+          monitor: val_loss
+          min_delta: 0.00001
+          patience: 100
+          verbose: 0
+          mode: auto
+  optimizer:
+    SGD:
+      enable: false
+      hparams:
+        lr: 0.1
+        momentum: 0.9
+        decay: 0.01
+        nesterov: False
+    RMSprop: # It is recommended to use the default parameters as below
+      enable: false
+      hparams:
+        lr: 0.001
+        rho: 0.9
+        epsilon: null
+        decay: 0.0
+    Adam: # Below default parameters follow the proposed paper
+      enable: false
+      hparams:
+        lr: 0.001
+        beta_1: 0.9
+        beta_2: 0.999
+        epsilon: null
+        decay: 0.0
+        amsgrad: false
+    Adagrad: # It is recommended to use the default parameters as below
+      enable: false
+      hparams:
+        lr: 0.01
+        epsilon: null
+        decay: 0.0
+    Adadelta: # It is recommended to use the default parameters as below
+      enable: false
+      hparams:
+        lr: 1.0
+        rho: 0.95
+        epsilon: null
+        decay: 0.0
+    Adamax: # Below default parameters follow the proposed paper (DEFAULT: lr=0.002)
+      enable: true
+      hparams:
+        lr: 0.002
+        beta_1: 0.9
+        beta_2: 0.999
+        epsilon: null
+        decay: 0.0
+    Nadam: # Below default parameters follow the proposed paper. It is recommended to use the default parameters.
+      enable: false
+      hparams:
+        lr: 0.002
+        beta_1: 0.9
+        beta_2: 0.999
+        epsilon: null
+        schedule_decay: 0.004
+validate:
+  input_path: dummy
+  output_path: dummy
+  model: dummy
+test:
+  input_path: dummy
+  output_path: dummy
+  model: dummy
+predict:
+  input_path: dummy
+  output_path: dummy
+  model: dummy
