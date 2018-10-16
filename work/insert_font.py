@@ -98,8 +98,7 @@ class GenerateTelopImage(object):
 
     def run(self):
 
-        #for image_path in tqdm(self.image_paths):
-        for image_path in self.image_paths:
+        for image_path in tqdm(self.image_paths):
 
             image = Image.open(image_path)
             image = self.resize(image, self.resize_w, self.resize_h)
@@ -118,7 +117,7 @@ class GenerateTelopImage(object):
 
             self.draw_text(font, drawer, text, color, left, top, width, height)
 
-            print(os.path.basename(image_path), '\t', os.path.basename(font_path), '\t', text)
+            #print(os.path.basename(image_path), '\t', os.path.basename(font_path), '\t', text) # For DEBUG
             save_filename = self.save_prefix + '_' + os.path.basename(image_path)
             self.save_image(image, os.path.join(self.save_dir, save_filename))
 
