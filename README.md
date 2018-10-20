@@ -11,7 +11,7 @@ python impulso.py predict -e XXXX-XXXX-XXXX -m X -x X=DIR -y Y-DIR
 ## Results
 Not successfully detected.  
 - Heatmap: Score of each pixel
-- Rectangle: Detectection
+- Rectangle: Detected bounding box
 
 ![Sample01](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample01.jpg)
 ![Sample02](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample02.jpg)

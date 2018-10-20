@@ -83,6 +83,7 @@ class Estimator(object):
 
     def get_merged_bboxes(self):
         logger.info('Get merged bboxes...')
+        element_bboxes_json = []
         merged_bboxes_json = []
         for y, filename in zip(self.y, self.filename):
             # Resize
@@ -90,11 +91,15 @@ class Estimator(object):
             resize_w = self.hparams['common']['resize']['width']
             score_image = y.reshape(resize_h, resize_w)
             # Detect merged bboxes
-            bboxes_detector = detector.GetDetectionBBoxes()
+            bboxes_detector = detector.GetDetectionBBoxes(self.hparams)
             element_bboxes = bboxes_detector.get_element_bboxes(score_image)
+            element_bboxes_json.append({'BBox': element_bboxes.copy(),
+                                        'FileName': filename})
             merged_bboxes = bboxes_detector.get_independent_bboxes(element_bboxes)
             merged_bboxes_json.append({'BBox': merged_bboxes,
                                        'FileName': filename})
+        with open(os.path.join(self.output_home, 'element_bbox.json'), 'w') as f:
+            json.dump(element_bboxes_json, f, ensure_ascii=False, indent=4)
         with open(os.path.join(self.output_home, 'merged_bbox.json'), 'w') as f:
             json.dump(merged_bboxes_json, f, ensure_ascii=False, indent=4)
 
@@ -111,15 +116,21 @@ class Estimator(object):
             resize_h = self.hparams['common']['resize']['height']
             resize_w = self.hparams['common']['resize']['width']
             
+            with open(os.path.join(self.output_home, 'element_bbox.json'), 'r') as f:
+                element_bboxes = json.load(f)
             with open(os.path.join(self.output_home, 'merged_bbox.json'), 'r') as f:
-                bboxes = json.load(f)
+                merged_bboxes = json.load(f)
 
-            for x, y, filename, bbox in zip(self.x, self.y, self.filename, bboxes):
-                assert filename == bbox['FileName'], 'FileName is inappropriate.'
+            for x, y, filename, merged_bbox, element_bbox in zip(self.x, self.y, self.filename, merged_bboxes, element_bboxes):
+                assert filename == element_bbox['FileName'], 'Element BBox FileName is inappropriate.'
+                assert filename == merged_bbox['FileName'], 'Merged BBox FileName is inappropriate.'
                 score_img = visualizer.get_score_map(x, y.reshape(resize_h, resize_w))
+                # Draw element rectangles
+                for rectangle in element_bbox['BBox']:
+                    score_img = visualizer.draw_rectangle(score_img, rectangle, color=(0,255,255), width=1)
                 # Draw rectangles
-                for rectangle in bbox['BBox']:
-                    score_img = visualizer.draw_rectangle(score_img, rectangle)
+                for rectangle in merged_bbox['BBox']:
+                    score_img = visualizer.draw_rectangle(score_img, rectangle, color=(0,0,255), width=2)
                 visualizer.save_image(score_img, os.path.join(self.output_home, 'figures', filename))
 
 if __name__ == '__main__':

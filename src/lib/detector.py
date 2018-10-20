@@ -3,12 +3,13 @@
 
 class GetDetectionBBoxes(object):
 
-    def __init__(self):
-        self.filter_w = 10
-        self.filter_h = 10
-        self.sliding_window_h = 3
-        self.sliding_window_v = 3
-        self.detect_threshold = 0.3
+    def __init__(self, hparams):
+        self.hparams = hparams['postprocess']['merge_bbox']
+        self.filter_w = self.hparams['filter_w']
+        self.filter_h = self.hparams['filter_h']
+        self.sliding_window_h = self.hparams['sliding_window_h']
+        self.sliding_window_v = self.hparams['sliding_window_v']
+        self.detect_threshold = self.hparams['detect_threshold']
 
         assert self.filter_w > self.sliding_window_h, 'Filter width must be larger than sliding window'
         assert self.filter_h > self.sliding_window_v, 'Filter height must be larger than sliding window'
@@ -73,18 +74,16 @@ class GetDetectionBBoxes(object):
                     bbox2_right = bbox2_left + bbox2['Width']
                     bbox2_bottom = bbox2_top + bbox2['Height']
                     # Conditions to duplicate
-                    horizontal_cond = bbox1_right < bbox2_left or bbox1_left > bbox2_right
-                    vertical_cond = bbox1_bottom < bbox2_top or bbox1_top > bbox2_bottom
-                    duplicate_cond = not (horizontal_cond or vertical_cond)
+                    duplicate_cond = not (bbox1_right < bbox2_left
+                                          or bbox1_left > bbox2_right
+                                          or bbox1_bottom < bbox2_top
+                                          or bbox1_top > bbox2_bottom)
                     # Conditions that two bboxes are the same bboxes
-                    same_cond = ((bbox1_left == bbox2_left)
-                                 and (bbox1_top == bbox2_top)
-                                 and (bbox1_right == bbox2_right)
-                                 and (bbox1_bottom == bbox2_bottom))
+                    same_cond = bbox1 == bbox2
 
                     if duplicate_cond and not same_cond:
                         left = min(bbox1_left, bbox2_left)
-                        top = min(bbox1_top, bbox1_top)
+                        top = min(bbox1_top, bbox2_top)
                         width = max(bbox1_right, bbox2_right) - left
                         height = max(bbox1_bottom, bbox2_bottom) - top
                         merged_bbox = {

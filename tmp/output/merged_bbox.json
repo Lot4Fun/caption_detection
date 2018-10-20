@@ -3,15 +3,15 @@
         "BBox": [
             {
                 "Left": 60,
-                "Top": 9,
+                "Top": 0,
                 "Width": 169,
-                "Height": 13
+                "Height": 22
             },
             {
                 "Left": 12,
-                "Top": 141,
+                "Top": 132,
                 "Width": 205,
-                "Height": 16
+                "Height": 25
             }
         ],
         "FileName": "sample01.jpg"
@@ -19,16 +19,10 @@
     {
         "BBox": [
             {
-                "Left": 6,
-                "Top": 111,
-                "Width": 232,
-                "Height": 22
-            },
-            {
                 "Left": 3,
-                "Top": 138,
+                "Top": 111,
                 "Width": 235,
-                "Height": 13
+                "Height": 40
             }
         ],
         "FileName": "sample02.jpg"
@@ -37,9 +31,9 @@
         "BBox": [
             {
                 "Left": 48,
-                "Top": 141,
+                "Top": 120,
                 "Width": 169,
-                "Height": 16
+                "Height": 37
             }
         ],
         "FileName": "sample03.jpg"
@@ -48,15 +42,15 @@
         "BBox": [
             {
                 "Left": 15,
-                "Top": 12,
+                "Top": 9,
                 "Width": 205,
-                "Height": 16
+                "Height": 19
             },
             {
                 "Left": 27,
-                "Top": 126,
+                "Top": 114,
                 "Width": 211,
-                "Height": 28
+                "Height": 40
             }
         ],
         "FileName": "sample04.jpg"
@@ -71,9 +65,9 @@
             },
             {
                 "Left": 6,
-                "Top": 18,
+                "Top": 6,
                 "Width": 103,
-                "Height": 10
+                "Height": 22
             },
             {
                 "Left": 75,
@@ -88,15 +82,15 @@
         "BBox": [
             {
                 "Left": 0,
-                "Top": 18,
+                "Top": 3,
                 "Width": 238,
-                "Height": 16
+                "Height": 31
             },
             {
                 "Left": 27,
-                "Top": 138,
+                "Top": 117,
                 "Width": 202,
-                "Height": 16
+                "Height": 37
             }
         ],
         "FileName": "sample06.jpg"
@@ -105,21 +99,15 @@
         "BBox": [
             {
                 "Left": 75,
-                "Top": 15,
+                "Top": 0,
                 "Width": 154,
-                "Height": 10
+                "Height": 25
             },
             {
                 "Left": 0,
                 "Top": 120,
-                "Width": 220,
-                "Height": 22
-            },
-            {
-                "Left": 0,
-                "Top": 144,
                 "Width": 238,
-                "Height": 13
+                "Height": 37
             }
         ],
         "FileName": "sample07.jpg"
@@ -128,9 +116,9 @@
         "BBox": [
             {
                 "Left": 3,
-                "Top": 12,
+                "Top": 0,
                 "Width": 235,
-                "Height": 16
+                "Height": 28
             }
         ],
         "FileName": "sample08.jpg"

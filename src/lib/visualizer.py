@@ -7,7 +7,7 @@ import cv2
 from PIL import Image
 
 
-def draw_rectangle(img_arr, rectangle):
+def draw_rectangle(img_arr, rectangle, color=(0,0,255), width=2):
     """
     Args:
         rectangle: dict = {'Left':*, 'Top':*, 'Width':*, 'Height':*}
@@ -15,8 +15,8 @@ def draw_rectangle(img_arr, rectangle):
     return cv2.rectangle(img_arr,
                          (rectangle['Left'], rectangle['Top']),
                          (rectangle['Left']+rectangle['Width'], rectangle['Top']+rectangle['Height']),
-                         (0,0,255),
-                         2)
+                         color,
+                         width)
 
 
 def get_score_map(x_arr, y_arr):

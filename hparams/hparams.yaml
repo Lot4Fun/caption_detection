@@ -123,3 +123,11 @@ predict:
   input_path: dummy
   output_path: dummy
   model: dummy
+postprocess:
+  merge_bbox:
+    filter_w: 10
+    filter_h: 10
+    sliding_window_h: 3
+    sliding_window_v: 3
+    detect_threshold: 0.3
+    
