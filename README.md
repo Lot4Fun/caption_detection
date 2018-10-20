@@ -4,9 +4,9 @@
 Detect telops in the image.
 
 ## Demo
+Could not upload the model file since it is too large.  
+To run prediction, create model and execute below command.  
 ```
-# Could not upload the model file since it is too large.
-# To run prediction, create model and execute below command.
 python impulso.py predict -e EXPERIMENT-ID -m MODEL-ID -x ./tmp/input -y ./tmp/output
 ```
 
