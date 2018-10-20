@@ -130,4 +130,6 @@ postprocess:
     sliding_window_h: 3
     sliding_window_v: 3
     detect_threshold: 0.3
-    
+visualizer:
+  draw_element_bbox: false
+  

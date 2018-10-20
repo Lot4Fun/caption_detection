@@ -124,13 +124,18 @@ class Estimator(object):
             for x, y, filename, merged_bbox, element_bbox in zip(self.x, self.y, self.filename, merged_bboxes, element_bboxes):
                 assert filename == element_bbox['FileName'], 'Element BBox FileName is inappropriate.'
                 assert filename == merged_bbox['FileName'], 'Merged BBox FileName is inappropriate.'
+
                 score_img = visualizer.get_score_map(x, y.reshape(resize_h, resize_w))
+
                 # Draw element rectangles
-                for rectangle in element_bbox['BBox']:
-                    score_img = visualizer.draw_rectangle(score_img, rectangle, color=(0,255,255), width=1)
+                if self.hparams['visualizer']['draw_element_bbox']:
+                    for rectangle in element_bbox['BBox']:
+                        score_img = visualizer.draw_rectangle(score_img, rectangle, color=(0,255,255), width=1)
+
                 # Draw rectangles
                 for rectangle in merged_bbox['BBox']:
                     score_img = visualizer.draw_rectangle(score_img, rectangle, color=(0,0,255), width=2)
+
                 visualizer.save_image(score_img, os.path.join(self.output_home, 'figures', filename))
 
 if __name__ == '__main__':
