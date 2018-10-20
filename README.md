@@ -1,11 +1,11 @@
 # __Telop Detection__
 
 ## Description
-IN PRODUCTION: Detect telop in image.
+Detect telops in the image.
 
 ## Demo
 ```
-python impulso.py predict -e XXXX-XXXX-XXXX -m X -x X=DIR -y Y-DIR
+python impulso.py predict -e 1018-2145-3823 -m 100 -x ./tmp/input -y ./tmp/output
 ```
 
 ## Results
@@ -13,16 +13,16 @@ Not successfully detected.
 - Heatmap: Score of each pixel
 - Rectangle: Detected bounding box
 
-![Sample01](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample01.jpg)
-![Sample02](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample02.jpg)
-![Sample03](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample03.jpg)
-![Sample04](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample04.jpg)
-![Sample05](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample05.jpg)
-![Sample06](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample06.jpg)
-![Sample07](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample07.jpg)
-![Sample08](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample08.jpg)
-![Sample09](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample09.jpg)
-![Sample10](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample10.jpg)
+![Sample01](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample01.jpg)
+![Sample02](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample02.jpg)
+![Sample03](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample03.jpg)
+![Sample04](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample04.jpg)
+![Sample05](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample05.jpg)
+![Sample06](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample06.jpg)
+![Sample07](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample07.jpg)
+![Sample08](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample08.jpg)
+![Sample09](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample09.jpg)
+![Sample10](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample10.jpg)
 
 ## Requirement
 tensorflow-gpu==1.4.0  
@@ -30,7 +30,7 @@ Keras==2.1.4
 
 ## Install
 ```
-git clone https://github.com/pystokes/CTPN.git
+git clone https://github.com/pystokes/telop_detection.git
 ```
 
 ## Usage
