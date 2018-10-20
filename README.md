@@ -9,7 +9,7 @@ python impulso.py predict -e XXXX-XXXX-XXXX -m X -x X=DIR -y Y-DIR
 ```
 
 ## Results
-Not successfully detected. 
+Not successfully detected.  
 ![Sample01](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample01.jpg)
 ![Sample02](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample02.jpg)
 ![Sample03](https://github.com/pystokes/CTPN/blob/master/tmp/output/figures/sample03.jpg)
