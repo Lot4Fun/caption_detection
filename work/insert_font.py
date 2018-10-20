@@ -50,7 +50,7 @@ class GenerateTelopImage(object):
             self.chars += chars
 
         # Config
-        self.default_min_font_size = 30
+        self.default_min_font_size = 10
         self.default_max_font_size = 100
         self.resize_w = 640
         self.resize_h = 480
@@ -218,13 +218,13 @@ class GenerateTelopImage(object):
 
 if __name__ == '__main__':
     generator = GenerateTelopImage(font_dir='fonts',
-                                   image_dir='sample_images',
+                                   image_dir='org',
                                    char_dir='characters',
                                    save_dir='draw_images',
                                    save_prefix='',
-                                   n_generate=100,
+                                   n_generate=10000,
                                    min_text=3, # The minimum number of text area
                                    max_text=8, # The maximum number of text area
-                                   max_text_length=20,
+                                   max_text_length=15,
                                    with_rectangle=False)
     generator.run()

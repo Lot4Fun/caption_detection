@@ -23,7 +23,7 @@ IMPULSO_HOME = os.environ['IMPULSO_HOME']
 
 # Set loger.
 log_date = datetime.datetime.today().strftime('%Y%m%d')
-log_path = os.path.join(IMPULSO_HOME, f'log/log_{log_date}.log')
+log_path = os.path.join(IMPULSO_HOME, f'logs/log_{log_date}.log')
 logger = getLogger('impulso')
 logger.setLevel(DEBUG)
 
@@ -121,6 +121,7 @@ class Impulso(object):
         estimator = Estimator(self.args.exec_type, self.hparams, self.model, self.args.x_dir, self.args.y_dir)
         estimator.load_data()
         estimator.estimate()
+        estimator.get_merged_bboxes()
         estimator.save_results()
         logger.info('End estimate of Impulso')
 

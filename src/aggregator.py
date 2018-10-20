@@ -56,7 +56,7 @@ class Aggregator(object):
         x, t, filenames = [], [], []
         faces_info = [] # Not saved. Used for balance_n_face augmentation.
         for data_source in usable_data:
-            with open(os.path.join(data_source, 'bbox.json')) as f:
+            with open(os.path.join(data_source, 'bbox.json'), encoding='utf-8') as f:
                 bboxes = json.load(f)
             
             logger.info(f'Loading images in {data_source}')

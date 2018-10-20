@@ -6,7 +6,20 @@ import numpy as np
 import cv2
 from PIL import Image
 
-def save_image(x_arr, y_arr, output_path):
+
+def draw_rectangle(img_arr, rectangle):
+    """
+    Args:
+        rectangle: dict = {'Left':*, 'Top':*, 'Width':*, 'Height':*}
+    """
+    return cv2.rectangle(img_arr,
+                         (rectangle['Left'], rectangle['Top']),
+                         (rectangle['Left']+rectangle['Width'], rectangle['Top']+rectangle['Height']),
+                         (0,0,255),
+                         2)
+
+
+def get_score_map(x_arr, y_arr):
     """
     Args:
         x: Array of resized original image.
@@ -25,7 +38,11 @@ def save_image(x_arr, y_arr, output_path):
     output_image = np.float32(y_image) + np.float32(x_image)
     output_image = 255 * output_image / np.max(output_image)
 
-    cv2.imwrite(output_path, output_image)
+    return output_image
+
+
+def save_image(image, output_path):
+    cv2.imwrite(output_path, image)
 
 
 if __name__ == '__main__':

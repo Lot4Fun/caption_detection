@@ -5,8 +5,9 @@ __pycache__/
 
 datasets/*
 experiments/*
-log/*
+logs/*
 org/*
+work/*
 
 # Keep.
 !.gitkeep

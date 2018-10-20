@@ -1,14 +1,29 @@
+common:
+  resize:
+    height: 160
+    width: 240
 dataset:
   random_seed: 1
-  input_path: ./org
-  test_split: 0.2
+  input_path: ./org/font_min_10_max_100
+  test_split: 0.1
+  augmentation:
+    without_face: false
+    shift_down: 0 # Maximum ratio to shift down
+    balance_n_face: false
+    random_shift: 0 # Maximum pixels to shift only the input image upwards, downwards, to the left or right for robustness
+    random_resize: false
+    rotate_minmax: unsupported # Rotate from -'rotate_minmax' to 'rotate_minmax' in degree
+    horizontal_flip: unsupported
+    vertial_flip: unsupported
+    shift_up: unsupported # Maximum ratio to shift up
+    random_slide: unsupported # Slide ground truth face area for robustness
 prepare:
   data_id: dummy
   experiment_id: dummy
 train:
   fit:
-    batch_size: 32
-    epochs: 10000
+    batch_size: 3
+    epochs: 1000
     verbose: 1
     validation_split: 0.2
     shuffle: true
@@ -19,7 +34,7 @@ train:
         hparams:
           monitor: val_loss
           factor: 0.2
-          patience: 100
+          patience: 5
           verbose: 1
           mode: auto
           epsilon: 0.0001
@@ -34,20 +49,20 @@ train:
           save_best_only: false
           save_weights_only: false
           mode: auto
-          period: 100
+          period: 10
       EarlyStopping:
-        enable: false
+        enable: true
         hparams:
           monitor: val_loss
           min_delta: 0.00001
-          patience: 100
+          patience: 10
           verbose: 0
           mode: auto
   optimizer:
     SGD:
       enable: false
       hparams:
-        lr: 0.1
+        lr: 0.02
         momentum: 0.9
         decay: 0.01
         nesterov: False
@@ -80,7 +95,7 @@ train:
         rho: 0.95
         epsilon: null
         decay: 0.0
-    Adamax: # Below default parameters follow the proposed paper (DEFAULT: lr=0.002)
+    Adamax: # Below default parameters follow the proposed paper
       enable: true
       hparams:
         lr: 0.002

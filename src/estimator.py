@@ -5,8 +5,10 @@ import os
 import numpy as np
 import glob
 import cv2
+import json
 from .lib import utils as utils
 from .lib import visualizer
+from .lib import detector
 
 from logging import DEBUG
 from logging import getLogger
@@ -79,17 +81,46 @@ class Estimator(object):
         self.y = self.model.predict(self.x, verbose=1)
 
 
+    def get_merged_bboxes(self):
+        logger.info('Get merged bboxes...')
+        merged_bboxes_json = []
+        for y, filename in zip(self.y, self.filename):
+            # Resize
+            resize_h = self.hparams['common']['resize']['height']
+            resize_w = self.hparams['common']['resize']['width']
+            score_image = y.reshape(resize_h, resize_w)
+            # Detect merged bboxes
+            bboxes_detector = detector.GetDetectionBBoxes()
+            element_bboxes = bboxes_detector.get_element_bboxes(score_image)
+            merged_bboxes = bboxes_detector.get_independent_bboxes(element_bboxes)
+            merged_bboxes_json.append({'BBox': merged_bboxes,
+                                       'FileName': filename})
+        with open(os.path.join(self.output_home, 'merged_bbox.json'), 'w') as f:
+            json.dump(merged_bboxes_json, f, ensure_ascii=False, indent=4)
+
+
     def save_results(self):
         os.makedirs(self.output_home, exist_ok=True)
         np.save(file=os.path.join(self.output_home, 'y.npy'), arr=self.y)
+
         if self.exec_type == 'predict':
             np.save(file=os.path.join(self.output_home, 'filename.npy'), arr=self.filename)
             os.makedirs(os.path.join(self.output_home, 'figures'), exist_ok=True)
-            # Save visualized image.
+
+            # Save visualized image
             resize_h = self.hparams['common']['resize']['height']
             resize_w = self.hparams['common']['resize']['width']
-            for x, y, filename in zip(self.x, self.y, self.filename):
-                visualizer.save_image(x, y.reshape(resize_h, resize_w), os.path.join(self.output_home, 'figures', filename))
+            
+            with open(os.path.join(self.output_home, 'merged_bbox.json'), 'r') as f:
+                bboxes = json.load(f)
+
+            for x, y, filename, bbox in zip(self.x, self.y, self.filename, bboxes):
+                assert filename == bbox['FileName'], 'FileName is inappropriate.'
+                score_img = visualizer.get_score_map(x, y.reshape(resize_h, resize_w))
+                # Draw rectangles
+                for rectangle in bbox['BBox']:
+                    score_img = visualizer.draw_rectangle(score_img, rectangle)
+                visualizer.save_image(score_img, os.path.join(self.output_home, 'figures', filename))
 
 if __name__ == '__main__':
     """add"""
