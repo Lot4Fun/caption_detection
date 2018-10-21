@@ -24,9 +24,9 @@ Not successfully detected.
 ![Sample07](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample07.jpg)
 ![Sample08](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample08.jpg)
 ![Sample09](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample09.jpg)
-![Sample10](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample10.jpg)
 
 ## Requirement
+Python3.6
 tensorflow-gpu==1.4.0  
 Keras==2.1.4  
 
@@ -68,3 +68,15 @@ python impulso.py predict -e EXPERIMENT-ID -m MODEL-ID -x INPUT_DIR -y OUTPUT_DI
 
 ## Author
 [LotFun](https://github.com/pystokes)
+
+## Specification
+### Data to be created with [aggregator.py](https://github.com/pystokes/telop_detection/blob/master/src/aggregator.py)
+- IMPULSO_HOME: Absolute path to directory [impulso.py](https://github.com/pystokes/telop_detection/blob/master/impulso.py) exists
+
+|Usage phase|Type|Path|
+|:---|:---|:---|
+|Train|Input|IMPULSO_HOME/datasets/{DATA-ID}/train/x/x.npy
+|Train|Ground Truth|IMPULSO_HOME/datasets/{DATA-ID}/train/t/t.npy
+|Test|Input|IMPULSO_HOME/datasets/test/x/x.npy
+|Test|Ground Truth|IMPULSO_HOME/datasets/test/t/t.npy
+|Test|Image file name|IMPULSO_HOME/datasets/test/x/filename.npy

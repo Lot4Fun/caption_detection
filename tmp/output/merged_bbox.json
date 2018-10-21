@@ -2,16 +2,16 @@
     {
         "BBox": [
             {
-                "Left": 60,
+                "Left": 66,
                 "Top": 0,
-                "Width": 169,
-                "Height": 22
+                "Width": 160,
+                "Height": 19
             },
             {
-                "Left": 12,
-                "Top": 132,
-                "Width": 205,
-                "Height": 25
+                "Left": 18,
+                "Top": 135,
+                "Width": 193,
+                "Height": 22
             }
         ],
         "FileName": "sample01.jpg"
@@ -19,9 +19,9 @@
     {
         "BBox": [
             {
-                "Left": 3,
+                "Left": 6,
                 "Top": 111,
-                "Width": 235,
+                "Width": 232,
                 "Height": 40
             }
         ],
@@ -30,9 +30,9 @@
     {
         "BBox": [
             {
-                "Left": 48,
+                "Left": 54,
                 "Top": 120,
-                "Width": 169,
+                "Width": 157,
                 "Height": 37
             }
         ],
@@ -41,15 +41,21 @@
     {
         "BBox": [
             {
-                "Left": 15,
-                "Top": 9,
-                "Width": 205,
-                "Height": 19
+                "Left": 156,
+                "Top": 12,
+                "Width": 52,
+                "Height": 13
             },
             {
-                "Left": 27,
+                "Left": 24,
+                "Top": 9,
+                "Width": 70,
+                "Height": 16
+            },
+            {
+                "Left": 33,
                 "Top": 114,
-                "Width": 211,
+                "Width": 202,
                 "Height": 40
             }
         ],
@@ -58,22 +64,22 @@
     {
         "BBox": [
             {
-                "Left": 147,
-                "Top": 9,
-                "Width": 76,
+                "Left": 162,
+                "Top": 12,
+                "Width": 49,
+                "Height": 13
+            },
+            {
+                "Left": 9,
+                "Top": 6,
+                "Width": 82,
                 "Height": 19
             },
             {
-                "Left": 6,
-                "Top": 6,
-                "Width": 103,
-                "Height": 22
-            },
-            {
-                "Left": 75,
-                "Top": 102,
-                "Width": 103,
-                "Height": 46
+                "Left": 84,
+                "Top": 105,
+                "Width": 88,
+                "Height": 40
             }
         ],
         "FileName": "sample05.jpg"
@@ -83,14 +89,14 @@
             {
                 "Left": 0,
                 "Top": 3,
-                "Width": 238,
-                "Height": 31
+                "Width": 232,
+                "Height": 28
             },
             {
-                "Left": 27,
+                "Left": 39,
                 "Top": 117,
-                "Width": 202,
-                "Height": 37
+                "Width": 184,
+                "Height": 34
             }
         ],
         "FileName": "sample06.jpg"
@@ -98,10 +104,10 @@
     {
         "BBox": [
             {
-                "Left": 75,
+                "Left": 81,
                 "Top": 0,
-                "Width": 154,
-                "Height": 25
+                "Width": 139,
+                "Height": 22
             },
             {
                 "Left": 0,
@@ -115,9 +121,9 @@
     {
         "BBox": [
             {
-                "Left": 3,
+                "Left": 6,
                 "Top": 0,
-                "Width": 235,
+                "Width": 232,
                 "Height": 28
             }
         ],
@@ -126,29 +132,12 @@
     {
         "BBox": [
             {
-                "Left": 6,
-                "Top": 120,
-                "Width": 217,
-                "Height": 37
+                "Left": 81,
+                "Top": 114,
+                "Width": 121,
+                "Height": 31
             }
         ],
         "FileName": "sample09.jpg"
-    },
-    {
-        "BBox": [
-            {
-                "Left": 39,
-                "Top": 9,
-                "Width": 16,
-                "Height": 10
-            },
-            {
-                "Left": 78,
-                "Top": 111,
-                "Width": 130,
-                "Height": 37
-            }
-        ],
-        "FileName": "sample10.jpg"
     }
 ]
