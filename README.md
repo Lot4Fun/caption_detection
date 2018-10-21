@@ -26,7 +26,7 @@ Not successfully detected.
 ![Sample09](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample09.jpg)
 
 ## Requirement
-Python3.6
+Python3.6  
 tensorflow-gpu==1.4.0  
 Keras==2.1.4  
 
