@@ -121,7 +121,9 @@ class Impulso(object):
         estimator = Estimator(self.args.exec_type, self.hparams, self.model, self.args.x_dir, self.args.y_dir)
         estimator.load_data()
         estimator.estimate()
-        estimator.get_merged_bboxes()
+        print(self.args.exec_type)
+        if self.args.exec_type == 'predict':
+            estimator.get_merged_bboxes()
         estimator.save_results()
         logger.info('End estimate of Impulso')
 

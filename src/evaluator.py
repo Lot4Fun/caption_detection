@@ -68,11 +68,6 @@ class Evaluator(object):
             scores.loc[idx, 'FileName'] = filename
             scores.loc[idx, 'RMS'] = rms
 
-            # Save Image
-            resize_h = self.hparams['common']['resize']['height']
-            resize_w = self.hparams['common']['resize']['width']            
-            visualizer.save_image(x, y.reshape(resize_h, resize_w), os.path.join(self.output_home, 'figures', filename))
-
         logger.info('Calculate total score')
         avg = scores['RMS'].mean()
         idx = len(scores.index)

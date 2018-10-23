@@ -4,7 +4,7 @@ common:
     width: 240
 dataset:
   random_seed: 1
-  input_path: ./org/font_min_10_max_100
+  input_path: ./org/font_min_10_max_100_small
   test_split: 0.1
   augmentation:
     without_face: false
