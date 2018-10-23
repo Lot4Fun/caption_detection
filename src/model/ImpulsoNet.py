@@ -101,8 +101,6 @@ class ImpulsoNet(object):
         self.model.compile(optimizer=self.selected_optimizer,
                            loss='mean_squared_error',
                            metrics=['accuracy'])
-        
-        self.model.summary()
     
 
 if __name__ == '__main__':

@@ -78,8 +78,6 @@ class Impulso(object):
         logger.info('Load model')
         from keras.models import load_model
 
-        modeler = ImpulsoNet(self.args.exec_type, self.hparams)
-        modeler.create_model()
         if self.args.experiment_id and self.args.model_id:
             models = glob.glob(os.path.join(IMPULSO_HOME, 'experiments', self.args.experiment_id, 'models', '*'))
             while models:
@@ -88,14 +86,17 @@ class Impulso(object):
                 if self.args.model_id == i_model:
                     logger.info('Load model: ' + model)
                     self.hparams[self.args.exec_type]['model'] = model
-                    modeler.model = load_model(model)
-                    modeler.model.summary()
+                    self.model = load_model(model)
         elif self.args.exec_type == 'train':
+            modeler = ImpulsoNet(self.args.exec_type, self.hparams)
+            modeler.create_model()
             modeler.select_optimizer()
             modeler.compile()
+            self.model = modeler.model
         else:
             pass
-        self.model = modeler.model
+
+        self.model.summary()
         
 
     def train(self):
