@@ -1,7 +1,7 @@
-# __Telop Detection__
+# __Caption Detection__
 
 ## Description
-Detect telops in the image.
+Detect captions in the image.
 
 ## Demo
 Could not upload the model file since it is too large.  
@@ -15,15 +15,15 @@ Not successfully detected.
 - Heatmap: Score of each pixel
 - Rectangle: Detected bounding box
 
-![Sample01](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample01.jpg)
-![Sample02](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample02.jpg)
-![Sample03](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample03.jpg)
-![Sample04](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample04.jpg)
-![Sample05](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample05.jpg)
-![Sample06](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample06.jpg)
-![Sample07](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample07.jpg)
-![Sample08](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample08.jpg)
-![Sample09](https://github.com/pystokes/telop_detection/blob/master/tmp/output/figures/sample09.jpg)
+![Sample01](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample01.jpg)
+![Sample02](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample02.jpg)
+![Sample03](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample03.jpg)
+![Sample04](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample04.jpg)
+![Sample05](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample05.jpg)
+![Sample06](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample06.jpg)
+![Sample07](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample07.jpg)
+![Sample08](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample08.jpg)
+![Sample09](https://github.com/pystokes/caption_detection/blob/master/tmp/output/figures/sample09.jpg)
 
 ## Requirement
 Python3.6  
@@ -32,7 +32,7 @@ Keras==2.1.4
 
 ## Install
 ```
-git clone https://github.com/pystokes/telop_detection.git
+git clone https://github.com/pystokes/caption_detection.git
 ```
 
 ## Usage
@@ -70,8 +70,8 @@ python impulso.py predict -e EXPERIMENT-ID -m MODEL-ID -x INPUT_DIR -y OUTPUT_DI
 [LotFun](https://github.com/pystokes)
 
 ## Specification
-### Data to be created with [aggregator.py](https://github.com/pystokes/telop_detection/blob/master/src/aggregator.py)
-- IMPULSO_HOME: Absolute path to directory [impulso.py](https://github.com/pystokes/telop_detection/blob/master/impulso.py) exists
+### Data to be created with [aggregator.py](https://github.com/pystokes/caption_detection/blob/master/src/aggregator.py)
+- IMPULSO_HOME: Absolute path to directory [impulso.py](https://github.com/pystokes/caption_detection/blob/master/impulso.py) exists
 
 |Usage phase|Type|Path|
 |:---|:---|:---|
