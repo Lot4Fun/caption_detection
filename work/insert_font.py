@@ -224,7 +224,7 @@ if __name__ == '__main__':
                                    save_prefix='',
                                    n_generate=10000,
                                    min_text=3, # The minimum number of text area
-                                   max_text=8, # The maximum number of text area
+                                   max_text=10, # The maximum number of text area
                                    max_text_length=15,
                                    with_rectangle=False)
     generator.run()
